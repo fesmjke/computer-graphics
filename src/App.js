@@ -1,11 +1,11 @@
-import HFractal from "./components/fractals/h-fractal";
-import Koch from "./components/fractals/koch";
+import { Outlet } from "react-router-dom";
+import HeaderPanel from "./components/panel/panel";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Koch></Koch>
-      <HFractal></HFractal>
+      <HeaderPanel></HeaderPanel>
+      <Outlet/>
     </div>
   );
 }
