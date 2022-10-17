@@ -4,6 +4,8 @@ export class Line {
         this.end = {x : x2, y : y2};
         this.splited = false;
         this.attached = false;
+        this.vertical = false;
+        this.horizontal = false;
     }
 
     points = () => {
