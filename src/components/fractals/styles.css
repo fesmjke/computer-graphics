@@ -1,0 +1,26 @@
+.fractal-page{
+    display: flex;
+    position: relative;
+    top: 15%;
+    height: 70%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sm-container {
+    text-align: center;
+    color: white;
+}
+
+.sm-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr)
+}
+
+.cbtn {
+    width: 40px;
+    height: 40px;
+    color: rgba(255, 255, 255, 1);
+    background-color : rgba(182, 182, 182, 0.4);
+}
