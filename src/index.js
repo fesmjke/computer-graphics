@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import FractalPage from './components/fractals/fractal-page';
 import EntryPage from './components/entry/entry-page';
+import ColorPage from './components/color-models/color-page';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/fractals",
         element: <FractalPage/>
+      },
+      {
+        path: "/colors",
+        element: <ColorPage/>
       }
     ]
   },

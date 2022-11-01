@@ -9,7 +9,7 @@ const HeaderPanel = () => {
             </div>
             <div className="panel-side">
                 <button className="cbutton"><Link to={`fractals`}  style={{ textDecoration: 'none' }}>Фрактали</Link></button>
-                <button className="cbutton">Моделі</button>
+                <button className="cbutton"><Link to={`colors`}  style={{ textDecoration: 'none' }}>Моделі</Link></button>
                 <button className="cbutton">Перетворення</button>
             </div>
         </div>

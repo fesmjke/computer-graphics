@@ -2,8 +2,8 @@
 
 ### Core parts
 * Fractals
-    * [ ] Koch Snowflake
-    * [ ] Inversed Koch Snowflake
-    * [ ] H-Tree
+    * [x] Koch Snowflake
+    * [x] Inversed Koch Snowflake
+    * [x] H-Tree
 * Color models
 * Affine transformation 
