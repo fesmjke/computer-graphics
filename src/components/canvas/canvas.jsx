@@ -5,7 +5,7 @@ import "./styles.css";
 const Canvas = ({fractal , type, styles, changeCenter}) => {
     const canvasRef = useRef(null);
     const [width, setWidth] = useState(800);
-    const [height, setHeight] = useState(550);
+    const [height, setHeight] = useState(450);
 
     useEffect(() => {
         const canvas = canvasRef.current;

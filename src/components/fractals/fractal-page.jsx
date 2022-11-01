@@ -10,7 +10,7 @@ const INITIAL_ITERATION = 0;
 const LIMIT_SIZE = 400;
 const INITIAL_SIZE = 100;
 const SIZE_STEP = 50;
-const INITIAL_CENTER = {x : 350, y : 350};
+const INITIAL_CENTER = {x : 400, y : 225};
 const DEFAULT_COLOR = { r: 128,g: 128,b: 128,a: 1 }
 const DEFAULT_CONNECTION = false;
 
