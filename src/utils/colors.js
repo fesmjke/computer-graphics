@@ -1,3 +1,7 @@
+const toDegree = (rad) => {
+  return Math.round(rad * 360);
+}
+
 function rgb2cmyk(rgb) {
     const { R, G, B } = rgb;
     
@@ -80,5 +84,6 @@ function hsv2rgb(HSV) {
 export {
     rgb2cmyk,
     rgb2hsv,
-    hsv2rgb
+    hsv2rgb,
+    toDegree
 }
