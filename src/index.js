@@ -6,6 +6,7 @@ import App from './App';
 import FractalPage from './components/fractals/fractal-page';
 import EntryPage from './components/entry/entry-page';
 import ColorPage from './components/color-models/color-page';
+import TransformationPage from './components/transformation/transformation';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/colors",
         element: <ColorPage/>
+      },
+      {
+        path: "/transformation",
+        element: <TransformationPage/>
       }
     ]
   },
@@ -30,7 +35,7 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  //<React.StrictMode>
     <RouterProvider router={router}/>
-  </React.StrictMode>
+  //</React.StrictMode>
 );

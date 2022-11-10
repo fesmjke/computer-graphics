@@ -1,0 +1,9 @@
+.transform-page{
+    display: flex;
+    position: relative;
+    top: 15%;
+    height: 70%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
