@@ -59,8 +59,6 @@ const TransformationPage = () => {
         let scalingDeformationX = 1.0;
         let scalingDeformationY = 1.0;
 
-        console.log(scalingMaxXY)
-
         // let shearingSign = 1;
         // const shearingMinXY = 0.0;
         // const shearingMaxXY = 1.0;
@@ -84,15 +82,18 @@ const TransformationPage = () => {
             currentAngle = angleRotation;
             currentMove += moveStep; 
             
-            if(scalingDeformationX.toFixed(1) === scalingMaxXY.toFixed(1) && scalingDeformationY.toFixed(1) === scalingMaxXY.toFixed(1)) {
+            if(scalingDeformationX.toFixed(1) >= scalingMaxXY.toFixed(1) && scalingDeformationY.toFixed(1) >= scalingMaxXY.toFixed(1)) {
                 scalingSign = -1;
             } 
             
-            if(scalingDeformationX.toFixed(1) === scalingMinXY.toFixed(1) && scalingDeformationY.toFixed(1) === scalingMinXY.toFixed(1)) {
+            if(scalingDeformationX.toFixed(1) <= scalingMinXY.toFixed(1) && scalingDeformationY.toFixed(1) <= scalingMinXY.toFixed(1)) {
                 scalingSign = 1;
             }
 
-            if(scalingMinXY !== scalingMaxXY && scalingMaxXY > scalingMinXY){
+            if(scalingMinXY === scalingMaxXY) {
+                scalingDeformationX = scalingDeformationX;
+                scalingDeformationY = scalingDeformationY;
+            } else {
                 scalingDeformationX += (deformationStep * scalingSign);
                 scalingDeformationY += (deformationStep * scalingSign);
             }
@@ -110,7 +111,7 @@ const TransformationPage = () => {
 
             drawGrid(cntx);
 
-            const deformationMartrix = !usingRandom ? matrix([[scalingDeformationX,0],[0,scalingDeformationY]]) : matrix([[Math.random() + 0.5,0],[0, Math.random()+ 0.5]]);
+            const deformationMartrix = !usingRandom ? matrix([[scalingDeformationX,0],[0,scalingDeformationY]]) : matrix([[getRandom(scalingMinXY,scalingMaxXY),0],[0, getRandom(scalingMinXY,scalingMaxXY)]]);
 
             const first = transform(square,deformationMartrix);
 
@@ -194,16 +195,18 @@ const TransformationPage = () => {
 
     const handleChangeScalingMinXY = (e) => {
         const value = e.target.value;
-    
-        setScalingMinXY(+value);
+        
+        if(value <= scalingMaxXY) {
+            setScalingMinXY(+value);
+        }
     }
 
     const handleChangeScalingMaxXY = (e) => {
         const value = e.target.value;
 
-        console.log(value);
-
-        setScalingMaxXY(+value);
+        if(value >= scalingMinXY) {
+            setScalingMaxXY(+value);
+        }
     }
 
     return (
