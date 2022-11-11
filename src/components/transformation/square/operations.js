@@ -56,11 +56,16 @@ const move = (origin, ml) => {
     return toPoints(n,origin.center);
 }
 
+const getRandom = (min, max) => {
+    return Math.random() * (max - min) + min;
+}
+
 export {
     toMatrix,
     toPoints,
     transform,
     toRads,
     toDeg,
-    move
+    move,
+    getRandom
 }
