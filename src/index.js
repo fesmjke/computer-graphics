@@ -7,6 +7,9 @@ import FractalPage from './components/fractals/fractal-page';
 import EntryPage from './components/entry/entry-page';
 import ColorPage from './components/color-models/color-page';
 import TransformationPage from './components/transformation/transformation';
+import AboutFractals from "./components/about/fractal/about-fractals";
+import AboutColors from './components/about/color-models/about-colors';
+import AboutTransformation from './components/about/transformation/about-transformation';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +31,18 @@ const router = createBrowserRouter([
       {
         path: "/transformation",
         element: <TransformationPage/>
+      },
+      {
+        path: "/about/fractals",
+        element: <AboutFractals/>
+      },
+      {
+        path: "/about/colors",
+        element: <AboutColors/>
+      },
+      {
+        path: "/about/transformation",
+        element: <AboutTransformation/>
       }
     ]
   },
