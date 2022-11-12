@@ -24,3 +24,9 @@
     color: rgba(255, 255, 255, 1);
     background-color : rgba(182, 182, 182, 0.4);
 }
+
+.fractal-page > .details {
+    position: absolute;
+    left: 97%;
+    top: 85%;
+}

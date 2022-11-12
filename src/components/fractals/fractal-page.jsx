@@ -3,6 +3,8 @@ import Fractal from "./fractal"
 import FractalPanel from "./panel";
 import FooterPanel from "../footer-panel/footer-panel";
 import { FRACTAL_TYPES, LINES_TYPES } from "./types";
+import {Link} from "react-router-dom";
+import QuestionMark from "../../static/images/question.png";
 import "./styles.css";
 
 const LIMIT = 10;
@@ -102,6 +104,11 @@ const FractalPage = () => {
                      connection={connection}
                      changeCenter={changeCenter}
                      ></Fractal>
+            
+            <div className="details">
+                <button className="btn btn-outline-light"><Link to={`../about/fractals`} style={{ textDecoration: 'none' }}><img src={QuestionMark}></img></Link></button>
+            </div>
+
             <FooterPanel children={<FractalPanel
                 color={color}
                 changeColor={changeColor}
