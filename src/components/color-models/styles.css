@@ -88,3 +88,9 @@
 .download-image > img {
     width: 30%;
 }
+
+.color-page > .details {
+    position: absolute;
+    left: 97%;
+    top: 85%;
+}

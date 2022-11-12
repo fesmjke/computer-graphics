@@ -1,5 +1,7 @@
 import React,{useEffect, useState, useRef} from "react";
 import FooterPanel from "../footer-panel/footer-panel";
+import QuestionMark from "../../static/images/question.png";
+import {Link} from "react-router-dom";
 import {hsv2rgb, rgb2cmyk, rgb2hsv, toDegree} from "../../utils/colors";
 import Upload from "../../static/images/upload.png";
 import Download from "../../static/images/download.png";
@@ -143,6 +145,9 @@ const ColorPage = () => {
                 <canvas ref={canvasRef} width={width} height={height} onClick={handleClick} style={{visibility : dis}}>
                 </canvas>
                 {loaded && <button className="download-image btn" onClick={handleDownload}><img src={Download}></img></button>}
+            </div>
+            <div className="details">
+                <button className="btn btn-outline-light"><Link to={`../about/colors`} style={{ textDecoration: 'none' }}><img src={QuestionMark}></img></Link></button>
             </div>
         {/* <button onClick={handleReset}>Reset</button> */}
       <FooterPanel>
