@@ -1,0 +1,12 @@
+.color-image {
+    position: relative;
+    max-height: 50%;
+}
+
+.color-image > img {
+    position: relative;
+    top: 15%;
+    left: 30%;
+    width: 40%;
+    height: 70%;
+}
