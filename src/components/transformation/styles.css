@@ -6,4 +6,35 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
+
+    color : white;
+}
+
+.place-holder {
+    visibility: hidden;
+}
+
+.angle-settings {
+    display: grid;
+    justify-items: center;
+}
+
+.side-settings {
+    display: grid;
+    justify-items: center;
+}
+
+.deformation-settings {
+    display: grid;
+    justify-items: center;
+}
+
+.deformation-settings > input {
+    width: 1%;
+}
+
+.cbtn-t {
+    width: 70%;
+    color: rgba(255, 255, 255, 1);
+    background-color : rgba(182, 182, 182, 0.4);
 }

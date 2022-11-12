@@ -3,6 +3,7 @@ import {squareBuilder} from "./square/square";
 import {transform,toRads, toDeg, move, getRandom} from "./square/operations";
 import {matrix, setCartesian} from "mathjs";
 import "./styles.css";
+import FooterPanel from "../footer-panel/footer-panel";
 
 const WIDHT = 1000;
 const HEIGHT = 500;
@@ -133,24 +134,32 @@ const TransformationPage = () => {
 
     const draw = (ctx,points) => {
         ctx.beginPath();
-        ctx.font = "12px serif";
+        // ctx.font = "12px serif";
         ctx.moveTo(points.tl.x,points.tl.y);
-        
-        ctx.strokeText("T L",points.tl.x,points.tl.y);
-        
+           
         ctx.lineTo(points.tr.x,points.tr.y);
-
-        ctx.strokeText("T R",points.tr.x,points.tr.y);
 
         ctx.lineTo(points.br.x,points.br.y);
 
-        ctx.strokeText("B R",points.br.x,points.br.y);
-
         ctx.lineTo(points.bl.x,points.bl.y);
 
-        ctx.strokeText("B L",points.bl.x,points.bl.y);
-
         ctx.lineTo(points.tl.x,points.tl.y);
+
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = "black";
+        ctx.beginPath()
+
+        ctx.moveTo(points.tl.x ,points.tl.y );
+           
+        ctx.lineTo(points.tr.x ,points.tr.y );
+
+        ctx.lineTo(points.br.x ,points.br.y );
+
+        ctx.lineTo(points.bl.x ,points.bl.y );
+
+        ctx.lineTo(points.tl.x ,points.tl.y );
 
         ctx.closePath();
         ctx.stroke();
@@ -173,7 +182,7 @@ const TransformationPage = () => {
         cntx.lineTo(0, -height);
         cntx.stroke();
 
-        cntx.fillStyle = "black";
+        cntx.fillStyle = "white";
     }
 
     const handleChangeAngle = (e) => {
@@ -182,7 +191,13 @@ const TransformationPage = () => {
     }
 
     const handleChangeSide = (e) => {
-        setSide(e.target.value);
+        if(+e.target.value < 50) {
+            setSide(side);
+        } else if (+e.target.value > 250) {
+            setSide(side);
+        } else {
+            setSide(e.target.value);
+        }
     }
 
     const handleClickStart = () => {
@@ -209,25 +224,43 @@ const TransformationPage = () => {
         }
     }
 
+    const setRandom = () => {
+        setUsingRandom(!usingRandom);
+    }
+
     return (
         <div className="transform-page">
             <h4>Transformation page</h4>
             <canvas ref={canvasRef} width={width} height={height}/>
-            <input type="range" min={0} max={360} value={angle} onChange={handleChangeAngle} disabled={start}></input>
-            <span>Direction</span><input type="checkbox"></input>
-            <input type="number" value={side} onChange={handleChangeSide}></input>
-            
-            <div>
-                <h5>Deformation settings</h5>
-                <div>
-                    <h5>Scaling along x and y</h5>
-                    <span>Min <input type="number" min={0.1} max={3.0} step={0.1} value={scalingMinXY} onChange={handleChangeScalingMinXY}></input></span>
-                    <span>Max <input type="number" min={0.1} max={3.0} step={0.1} value={scalingMaxXY} onChange={handleChangeScalingMaxXY}></input></span>
-                </div>
-            </div>
+            <FooterPanel>
+                <React.Fragment>
 
-            {!start ? <button onClick={handleClickStart} disabled={start}>Start</button> : <button onClick={handleClickReset} disabled={running}>Reset</button>}
-            {<p>Angle : {angle}</p>}
+                <div className="place-holder">
+
+                </div>
+                
+                <div className="side-settings form-group">
+                    <h5>Розмір сторони квадрата</h5>
+                    <input type="number" value={side} onChange={handleChangeSide}></input>
+                </div>
+
+                <div className="angle-settings form-group">
+                    <input type="range" min={0} max={360} value={angle} onChange={handleChangeAngle} disabled={start}></input>
+                    {<p>Кут повороту : {angle}</p>}
+
+                    {!start ? <button className="btn btn-outline-light cbtn-t" onClick={handleClickStart} disabled={start}>Почати</button> : <button className="btn btn-outline-light cbtn-t" onClick={handleClickReset} disabled={running}>Скинути</button>}    
+
+                </div>
+
+                <div className="deformation-settings">
+                    <h5>Деформація (масштабування)</h5>
+                    <span>Мінімальний <input type="number" min={0.1} max={3.0} step={0.1} value={scalingMinXY} onChange={handleChangeScalingMinXY}></input></span>
+                    <span>Максимальний <input type="number" min={0.1} max={3.0} step={0.1} value={scalingMaxXY} onChange={handleChangeScalingMaxXY}></input></span>
+                    <span>Використовувати випадковість <input type="checkbox" value={usingRandom} onChange={setRandom}></input></span>
+                </div>
+
+                </React.Fragment>
+            </FooterPanel>
         </div>
     )
 }
