@@ -1,0 +1,12 @@
+.fractal-image {
+    position: relative;
+    max-height: 50%;
+}
+
+.fractal-image > img {
+    position: relative;
+    top: 15%;
+    left: 20%;
+    width: 60%;
+    height: 70%;
+}
