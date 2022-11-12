@@ -1,7 +1,9 @@
-import React,{useRef,useState,useEffect, useCallback} from "react";
+import React,{useRef,useState,useEffect} from "react";
 import {squareBuilder} from "./square/square";
-import {transform,toRads, toDeg, move, getRandom} from "./square/operations";
-import {matrix, setCartesian} from "mathjs";
+import QuestionMark from "../../static/images/question.png";
+import {Link} from "react-router-dom";
+import {transform,toRads, move, getRandom} from "./square/operations";
+import {matrix } from "mathjs";
 import "./styles.css";
 import FooterPanel from "../footer-panel/footer-panel";
 
@@ -232,6 +234,11 @@ const TransformationPage = () => {
         <div className="transform-page">
             <h4>Transformation page</h4>
             <canvas ref={canvasRef} width={width} height={height}/>
+            
+            <div className="details">
+                <button className="btn btn-outline-light"><Link to={`../about/transformation`} style={{ textDecoration: 'none' }}><img src={QuestionMark}></img></Link></button>
+            </div>
+            
             <FooterPanel>
                 <React.Fragment>
 
